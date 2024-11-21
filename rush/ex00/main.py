@@ -1,13 +1,13 @@
-from checkmate import checkmate  # นำเข้าฟังก์ชัน checkmate จาก checkmate.py
+from checkmate import checkmate  
 
 def main():
     board = """\
-R...
-.K..
-..P.
-....\
+..
+.K\ 
 """
-    checkmate(board)  # เรียกฟังก์ชัน checkmate พร้อมส่งกระดานเป็นพารามิเตอร์
+    checkmate(board)  
 
 if __name__ == "__main__":
     main()
+
+
