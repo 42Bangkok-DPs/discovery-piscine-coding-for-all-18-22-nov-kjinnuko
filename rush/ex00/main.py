@@ -1,13 +1,12 @@
-from checkmate import checkmate  
+from checkmate import checkmate
 
 def main():
     board = """\
 ..
-.K\ 
+.K\
 """
     checkmate(board)  
 
 if __name__ == "__main__":
     main()
-
 
