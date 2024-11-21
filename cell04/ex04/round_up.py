@@ -5,9 +5,9 @@ def main():
     n = float(input("Give me a number: "))
     
     if n == int(n):
-        rn = int(n)  # ถ้าเป็นจำนวนเต็มใช้ค่าตัวเลขเดิม
+        rn = int(n)  
     else:
-        rn = int(n) + 1  # ถ้าไม่ใช่จำนวนเต็มปัดขึ้น
+        rn = int(n) + 1  
     
     print(f"{rn}")
 
