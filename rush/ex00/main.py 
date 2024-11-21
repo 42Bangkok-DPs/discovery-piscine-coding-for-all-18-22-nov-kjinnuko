@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+
+def cm(bd):  # Checkmate function
+    bd = bd.splitlines()
+    sz = len(bd)
+    dr = {
+        "P": [(-1, -1), (-1, 1)],
+        "R": [(0, 1), (1, 0), (0, -1), (-1, 0)],
+        "B": [(-1, -1), (1, 1), (1, -1), (-1, 1)],
+        "Q": [(0, 1), (1, 0), (0, -1), (-1, 0), (-1, -1), (1, 1), (1, -1), (-1, 1)]
+    }
+
+    def fk():  # Find King
+        for r in range(sz):
+            for c in range(sz):
+                if bd[r][c] == 'K':
+                    return r, c
+        return None
+
+    def ic(r, c, d1, d2, pc):  # Is Check
+        while 0 <= r < sz and 0 <= c < sz:
+            if bd[r][c] != '.':
+                return bd[r][c] == pc
+            r += d1
+            c += d2
+        return False
+
+    kp = fk()  # King Position
+    if not kp:
+        print("Fail")
+        return
+
+    kr, kc = kp
+    for pc, mv in dr.items():
+        for d1, d2 in mv:
+            if ic(kr + d1, kc + d2, d1, d2, pc):
+                print("Success")
+                return
+    print("Fail")
+
+def main():
+    bd = """\
+R...
+.K..
+..P.
+....\
+"""
+    cm(bd)
+
+if __name__ == "__main__":
+    main()
